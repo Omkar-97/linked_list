@@ -3,25 +3,37 @@ Linked list implementation in Python
 Sample
 
 ```
-Z Y X W V U T S R Q P O N M L K J I H G F E D C B A 
-Initial size:  26
-Node to be deleted?: G
-Deleting [G]
-Z Y X W V U T S R Q P O N M L K J I H F E D C B A 
-Updated size:  25
+Linked List operations
+[a] Add	[d] Delete	[p] Print	[s] Size
+Enter operation code: a
+Enter new node:  D
 
 Want to continue [y/n]: y
-Node to be deleted?: Z
-Y X W V U T S R Q P O N M L K J I H F E D C B A 
-Updated size:  24
+[a] Add	[d] Delete	[p] Print	[s] Size
+Enter operation code: a
+Enter new node:  Y
 
 Want to continue [y/n]: y
-Node to be deleted?: P
-Deleting [P]
-Y X W V U T S R Q O N M L K J I H F E D C B A 
-Updated size:  23
+[a] Add	[d] Delete	[p] Print	[s] Size
+Enter operation code: p
+[ Y ] [ D ] 
 
-Want to continue [y/n]: n
+Want to continue [y/n]: y
+[a] Add	[d] Delete	[p] Print	[s] Size
+Enter operation code: s
+List size:  2
+
+Want to continue [y/n]: y
+[a] Add	[d] Delete	[p] Print	[s] Size
+Enter operation code: d
+[ Y ] [ D ] 
+
+Node to be deleted?: Y
+
+Want to continue [y/n]: y
+[a] Add	[d] Delete	[p] Print	[s] Size
+Enter operation code: p
+[ D ] 
 
 ```
  
