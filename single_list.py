@@ -13,9 +13,6 @@ class Node:
     def get_next_node(self):
         return self.next_node
 
-    def set_next_node(self, val):
-        self.next_node = val
-
 
 class LinkedList:
 
@@ -31,16 +28,19 @@ class LinkedList:
     def del_node(self, key):
         temp = self.head
         if temp is not None:
-            if temp is not None:
-                if temp.data == key:
-                    self.head = temp.next_node
-                    temp = None
-                    self.size -= 1
-                    return
+            if temp.data == key:
+                self.head = temp.next_node
+                temp = None
+                self.size -= 1
+                return
+            else:
+                print("[{}] not found".format(key))
             while temp is not None:
                 if temp.data == key:
-                    print("Deleting [{}]".format(key))
+                    print("[{}] deleted".format(key))
                     break
+                else:
+                    print("[{}] not found".format(key))
                 prev = temp
                 temp = temp.next_node
             if temp is None:
@@ -54,7 +54,7 @@ class LinkedList:
     def print_node(self):
         curr = self.head
         while curr:
-            print(curr.data, end=" ")
+            print("[", curr.data, "]", end=" ")
             curr = curr.get_next_node()
         print()
 
@@ -63,19 +63,38 @@ def singly_list():
 
     choice = True
     my_list = LinkedList()
-    for i in range(ord("A"), ord("Z") + 1):
-        my_list.add_node(chr(i))
-    my_list.print_node()
-    print("Initial size: ", my_list.get_size())
-
+    print("Linked List operations")
+    print("[a] Add\t[d] Delete\t[p] Print\t[s] Size")
     while choice:
-        print("Node to be deleted?:", end=" ")
-        node_del = input()
-        my_list.del_node(node_del)
-        my_list.print_node()
-        print("Updated size: ", my_list.get_size())
+        print("Enter operation code: ", end="")
+        op = input()
+        if op == "a" or op == "A":
+            print("Enter new node: ", end=" ")
+            new_node = input()
+            my_list.add_node(new_node)
+        if op == "d" or op == "D":
+            if my_list.get_size() > 0:
+                my_list.print_node()
+                print("\nNode to be deleted?:", end=" ")
+                node_del = input()
+                my_list.del_node(node_del)
+            else:
+                print("List empty")
+        if op == "p" or op == "P":
+            if my_list.get_size() > 0:
+                my_list.print_node()
+            else:
+                print("List empty")
+        if op == "s" or op == "S":
+            if my_list.get_size() > 0:
+                print("List size: ", my_list.get_size())
+            else:
+                print("List empty")
+
         print("\nWant to continue [y/n]:", end=" ")
         val = input()
+        if val == "y":
+            print("[a] Add\t[d] Delete\t[p] Print\t[s] Size")
         if val != 'y':
             choice = False
 
